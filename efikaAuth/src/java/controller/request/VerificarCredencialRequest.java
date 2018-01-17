@@ -5,8 +5,6 @@
  */
 package controller.request;
 
-import org.mongodb.morphia.annotations.Transient;
-
 /**
  *
  * @author G0042204
@@ -15,7 +13,7 @@ public class VerificarCredencialRequest {
 
     private String login;
 
-    @Transient
+    //@Transient
     private String senha;
 
     public VerificarCredencialRequest() {
