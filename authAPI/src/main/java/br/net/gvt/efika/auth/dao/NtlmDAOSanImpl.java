@@ -27,7 +27,7 @@ public class NtlmDAOSanImpl implements NtlmDAO {
         InetAddress localMachine = InetAddress.getLocalHost();
         credsProvider.setCredentials(AuthScope.ANY,
                 new NTCredentials(cred.getLogin(), cred.getSenha(), localMachine.getHostName(), "gvt.net.br"));
-        HttpHost target = new HttpHost("sv2kpsan1.gvt.net.br");
+        HttpHost target = new HttpHost("portalsan.gvt.net.br");
         HttpClientContext context = HttpClientContext.create();
         context.setCredentialsProvider(credsProvider);
         HttpGet httpget = new HttpGet("http://portalsan.gvt.net.br/ChamadoSAN/");
