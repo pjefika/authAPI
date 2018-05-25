@@ -30,7 +30,8 @@ public class NtlmDAOSanImpl implements NtlmDAO {
         HttpHost target = new HttpHost("sv2kpsan1.gvt.net.br");
         HttpClientContext context = HttpClientContext.create();
         context.setCredentialsProvider(credsProvider);
-        HttpGet httpget = new HttpGet("http://sv2kpsan1.gvt.net.br/ChamadoSAN/");
+        HttpGet httpget = new HttpGet("http://portalsan.gvt.net.br/ChamadoSAN/");
+        //HttpGet httpget = new HttpGet("http://sv2kpsan1.gvt.net.br/ChamadoSAN/");
         CloseableHttpResponse response1 = httpclient.execute(target, httpget, context);
         System.out.println(response1.getStatusLine().getStatusCode());
 
