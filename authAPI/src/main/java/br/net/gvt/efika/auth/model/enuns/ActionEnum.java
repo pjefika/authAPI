@@ -11,6 +11,8 @@ package br.net.gvt.efika.auth.model.enuns;
  */
 public enum ActionEnum {
     
-    LOGIN;
+    LOGIN,
+    UPDATE_PASS,
+    CREATE_LOGIN;
     
 }

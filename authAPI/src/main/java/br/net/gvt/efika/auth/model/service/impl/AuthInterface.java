@@ -16,4 +16,6 @@ public interface AuthInterface {
     public Boolean verificarCredencial(String login, String senha) throws Exception;
 
     public Usuario consultar(String login) throws Exception;
+    
+    public Boolean atualizarCredencial(String login, String senha) throws Exception;
 }

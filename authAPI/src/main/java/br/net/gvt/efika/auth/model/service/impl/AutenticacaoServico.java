@@ -34,4 +34,9 @@ public class AutenticacaoServico implements AuthInterface {
         }
     }
 
+    @Override
+    public Boolean atualizarCredencial(String login, String senha) throws Exception {
+        return FactoryDAO.createAutenticacaoDAO().update(login, senha).getSenha().equals(senha);
+    }
+
 }
