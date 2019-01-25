@@ -39,4 +39,9 @@ public class AutenticacaoServico implements AuthInterface {
         return FactoryDAO.createAutenticacaoDAO().update(login, senha).getSenha().equals(senha);
     }
 
+    @Override
+    public Usuario criar(String login, Integer nivel) throws Exception {
+        return FactoryDAO.createAutenticacaoDAO().create(login, nivel);
+    }
+
 }

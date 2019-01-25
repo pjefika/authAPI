@@ -17,4 +17,6 @@ public interface AutenticacaoDAO {
 
     public Usuario update(String login, String pass) throws Exception;
 
+    public Usuario create(String login, Integer nivel) throws Exception;
+
 }

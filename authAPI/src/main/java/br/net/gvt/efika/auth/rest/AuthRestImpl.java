@@ -57,4 +57,16 @@ public class AuthRestImpl extends RestJaxAbstract {
         }
     }
 
+    @POST
+    @Path("/criarCredencial")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response criarCredencial(Usuario u) {
+        try {
+            return ok(FactoryService.createAutenticacaoServico().criar(u.getLogin(), u.getNivel()));
+        } catch (Exception ex) {
+            return serverError(ex);
+        }
+    }
+
 }
