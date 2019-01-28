@@ -42,7 +42,7 @@ public class AutenticacaoDAOImpl extends AbstractHibernateDAO implements Autenti
             u = (Usuario) getEm().createQuery("FROM Usuario u WHERE u.login =:param1")
                     .setParameter("param1", login)
                     .getSingleResult();
-            if (u.getNivel() == nivel) {
+            if (u.getNivel().compareTo(nivel) == 0) {
                 u.setSenha("vivo15");
             } else {
                 u.setNivel(nivel);
@@ -55,7 +55,7 @@ public class AutenticacaoDAOImpl extends AbstractHibernateDAO implements Autenti
 
         try {
             this.persist(u);
-            if (u.getSenha() != "vivo15") {
+            if (u.getSenha().contains("vivo15")) {
                 u.setSenha(null);
             }
             return u;
