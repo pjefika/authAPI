@@ -55,6 +55,9 @@ public class AutenticacaoDAOImpl extends AbstractHibernateDAO implements Autenti
 
         try {
             this.persist(u);
+            if (u.getSenha() != "vivo15") {
+                u.setSenha(null);
+            }
             return u;
         } finally {
             this.close();
