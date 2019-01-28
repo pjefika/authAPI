@@ -36,20 +36,30 @@ public class AutenticacaoDAOImpl extends AbstractHibernateDAO implements Autenti
 
     @Override
     public Usuario create(String login, Integer nivel) throws Exception {
+
+        Usuario u = new Usuario();
         try {
-            return (Usuario) getEm().createQuery("FROM Usuario u WHERE u.login =:param1")
+            u = (Usuario) getEm().createQuery("FROM Usuario u WHERE u.login =:param1")
                     .setParameter("param1", login)
                     .getSingleResult();
+            if (u.getNivel() == nivel) {
+                u.setSenha("vivo15");
+            } else {
+                u.setNivel(nivel);
+            }
         } catch (NoResultException e) {
-            Usuario u = new Usuario();
             u.setLogin(login);
             u.setSenha("vivo15");
             u.setNivel(nivel);
+        }
+
+        try {
             this.persist(u);
             return u;
         } finally {
             this.close();
         }
+
     }
 
 }
